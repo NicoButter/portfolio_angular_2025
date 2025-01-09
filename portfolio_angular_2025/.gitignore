@@ -1,0 +1,51 @@
+# Node.js
+/node_modules/
+/dist/
+/.angular/
+
+# IDEs y editores
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operativo
+Thumbs.db
+ehthumbs.db
+*.stackdump
+*.log
+
+# Angular CLI
+.angular/cache/
+*.ng_build_cache/
+
+# Ambiente local y configuración
+.env
+.env.local
+.env.*.local
+
+# Configuración temporal o de pruebas
+/coverage/
+/tmp/
+/out-tsc/
+
+# Archivos de pruebas y depuración
+*.tsbuildinfo
+*.map
+
+# Caches de herramientas de paquete
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# Otros
+*.bak
+*.bak.*
+*.tmp
+*.old
