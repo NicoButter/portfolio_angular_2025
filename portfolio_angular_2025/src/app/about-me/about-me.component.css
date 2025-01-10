@@ -1,0 +1,50 @@
+/* about-me.component.css */
+.about-me {
+    padding: 50px 10%;
+    background-color: transparent;
+    color: #333;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* Crea 3 columnas, con la del texto ocupando la columna izquierda */
+    gap: 20px;
+    /* Espacio entre las columnas */
+    margin-top: 173px;
+}
+
+.about-me-image {
+    grid-column: 2;
+    /* Coloca la imagen en la segunda columna (centrada) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+.about-me-text {
+    grid-column: 1;
+    /* Coloca el texto en la primera columna (izquierda) */
+    padding: 20px;
+    max-width: 700px;
+    color: #fff;
+    /* Asegura un buen contraste con el fondo */
+}
+
+.about-me-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    /* Título en blanco */
+}
+
+.about-me-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #ddd;
+    /* Texto en gris claro */
+}

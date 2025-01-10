@@ -1,1 +1,45 @@
-<p>skills works!</p>
+<div class="skills-container"> 
+    <h1 id="habilidades">My Skills</h1>
+    <div class="circle-progress-container">
+        
+        <div class="circle-container">        
+            <circle-progress 
+                [percent]="50" 
+                [radius]="80" 
+                [imageSrc]="'../assets/images/imagen_logo_java.png'"
+                [title]="''"
+                [imageHeight]="80"
+                [imageWidth]="80"
+                [showImage]="true"
+                [showUnits]="false"
+                [showTitle]="false"
+                [outerStrokeWidth]="8" 
+                [innerStrokeWidth]="5"
+                [outerStrokeColor]="'#FFBF00'" 
+                [innerStrokeColor]="'#808080'" 
+                [animation]="true"
+                [animationDuration]="750">
+            </circle-progress>
+        </div>
+
+        <div class="circle-container">        
+            <circle-progress 
+                [percent]="50" 
+                [radius]="80" 
+                [imageSrc]="'../assets/images/logo_java.png'"
+                [title]="''"
+                [imageHeight]="80"
+                [imageWidth]="80"
+                [showImage]="true"
+                [showUnits]="false"
+                [showTitle]="false"
+                [outerStrokeWidth]="5" 
+                [innerStrokeWidth]="5"
+                [outerStrokeColor]="'#FFBF00'" 
+                [innerStrokeColor]="'#808080'" 
+                [animation]="true"
+                [animationDuration]="750">
+            </circle-progress>
+        </div>
+    </div>
+</div>
