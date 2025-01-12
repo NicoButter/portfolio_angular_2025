@@ -1,8 +1,7 @@
 /* Estilos base del header */
 .header {
     display: grid;
-    grid-template-columns: auto 1fr 1fr; /* Tres columnas: izquierda (banner), centro (vacío), derecha (contacto) */
-    justify-items: center;
+    grid-template-columns: auto 1fr auto; /* Tres columnas: izquierda, centro vacío, derecha */
     align-items: center;
     position: fixed;
     top: 0;
@@ -11,77 +10,86 @@
     z-index: 10;
     background-color: transparent;
     padding: 20px;
-    transition: padding 0.3s ease;
+    transition: padding 0.3s ease, background-color 0.3s ease;
 }
-
-/* Efecto shrink cuando el scroll pasa de 100px */
-.header.shrink {
-    padding: 10px;
-    grid-template-columns: 0fr 1fr 1fr; /* Todo se va a la columna 3 */
-}
-
-/* Contenedor del header */
-.header-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas para contener los elementos */
-    width: 100%;
-    transition: width 0.3s ease;
-}
-
-/* Banner en la primera columna (estado inicial) */
+/* Contenedor del logo (izquierda) */
 .header-left {
-    grid-column: 1; /* Columna 1 */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    transition: transform 0.3s ease;
 }
 
-/* Banner central (vacío hasta que se aplique shrink) */
-.header-center {
-    grid-column: 2; /* Columna 2 */
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.2em;
-    color: #fff;
-    transition: opacity 0.3s ease;
-}
-
-.header.shrink .header-center {
-    opacity: 0; /* Desaparece cuando se aplica shrink */
-}
-
-/* Banner */
+/* Logo del banner */
 .header-banner {
-    max-width: 450px;
-    transition: max-width 0.3s ease, height 0.3s ease, transform 0.3s ease;
-    /* Animación para el cambio de tamaño y la posición */
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease, max-width 0.3s ease;
 }
 
-.header.shrink .header-banner {
-    max-width: 250px; /* Reducir el tamaño del banner */
-    transform: translateX(0); /* Mover al centro */
+/* Columna central (vacía) */
+.header-center {
+    text-align: center;
 }
 
-/* Estilo del botón de contacto en la tercera columna */
+/* Contenedor de las redes sociales y el botón de contacto (derecha) */
 .header-right {
-    grid-column: 3; /* Columna 3 */
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    transition: transform 0.3s ease;
+    gap: 20px;
 }
 
-/* En el shrink, todo se moverá junto a la derecha */
-.header.shrink .header-left,
-.header.shrink .header-center,
-.header.shrink .header-right {
-    grid-column: 3;
-    justify-content: center;
+/* Contenedor de íconos */
+.social-media-icons {
+    display: flex;
+    gap: 15px; /* Espacio entre los íconos */
+    margin-right: 15px; /* Espacio entre los íconos y el botón de contacto */
+    align-items: center;
 }
 
-/* Estilo del botón de contacto */
+/* Estilo de los iconos de redes sociales */
+.social-icon i {
+    font-size: 30px; /* Tamaño del ícono */
+    color: #fff; /* Color blanco */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover en los iconos */
+.social-icon:hover i {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    color: #ff5722; /* Cambia el color al pasar el mouse */
+}
+
+/* Ajustes en el logo al hacer shrink */
+.header.shrink .header-banner {
+    max-width: 150px; /* Reduce el tamaño del logo */
+}
+
+/* Ajustes para los íconos de redes sociales */
+.header.shrink .social-media-icons {
+    gap: 8px; /* Reduce el espacio entre los íconos */
+    margin-right: 10px; /* Ajusta el margen al contraer */
+}
+
+.header.shrink .social-icon i {
+    font-size: 25px; /* Tamaño reducido de los íconos */
+}
+
+/* Ajustes para el botón de contacto en estado shrink */
+.header.shrink .contact-button {
+    transform: scale(0.9); /* Reduce el tamaño del botón de contacto */
+}
+
+.header.shrink .contact-image {
+    width: 40px; /* Reduce el tamaño de la imagen */
+    height: 40px; /* Reduce el tamaño de la imagen */
+    border-width: 1px; /* Reduce el grosor del borde */
+}
+
+.header.shrink .contact-text {
+    font-size: 0.8em; /* Reduce el tamaño del texto */
+}
+
+/* Botón de contacto */
 .contact-button {
     display: flex;
     flex-direction: column;
@@ -91,38 +99,13 @@
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.header.shrink .contact-button {
-    flex-direction: row;
-    /* Cambio de dirección en el shrink */
-}
-
-.header.shrink .contact-button .contact-image {
-    width: 40px;
-    /* Reducir tamaño de la imagen */
-    height: 40px;
-}
-
-.header.shrink .contact-button .contact-text {
-    font-size: 0.8em;
-    /* Reducir tamaño de texto */
-}
-
-.contact-button:hover {
-    transform: scale(1.1);
-    color: #ff5722;
-}
-
 .contact-image {
     width: 50px;
-    /* Ajusta el tamaño de la imagen */
     height: 50px;
     border-radius: 50%;
-    /* Si quieres que sea circular */
     object-fit: cover;
     margin-bottom: 5px;
-    /* Espacio entre la imagen y el texto */
     border: 2px solid #fff;
-    /* Opcional: borde blanco */
 }
 
 .contact-text {
@@ -131,6 +114,64 @@
     text-align: center;
     margin: 0;
     color: inherit;
-    /* Usa el color del enlace */
     transition: color 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
+.contact-button:hover .contact-text {
+    color: #ff5722; /* Cambia el color del texto al pasar el mouse */
+}
+
+.contact-button:hover .contact-image {
+    border-color: #ff5722; /* Cambia el color del borde de la imagen */
+}
+
+/* Efectos suaves de transición */
+.contact-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border: 2px solid #fff;
+    transition: border-color 0.3s ease;
+}
+
+.contact-text {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+    .header-banner {
+        max-width: 150px;
+    }
+    .social-icon img {
+        width: 25px;
+        height: 25px;
+    }
+    .contact-image {
+        width: 40px;
+        height: 40px;
+    }
 }

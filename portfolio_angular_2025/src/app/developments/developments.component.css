@@ -1,4 +1,3 @@
-/* Estilos para el componente developments */
 .developments {
     display: flex;
     justify-content: center;
@@ -11,57 +10,45 @@
 .development-item {
     width: 450px;
     max-height: 400px;
-    /* Limita la altura de las tarjetas */
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    /* Fondo semitransparente */
-    backdrop-filter: blur(10px);
-    /* Efecto de desenfoque */
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    /* Esconde contenido que exceda la altura */
     display: flex;
     flex-direction: column;
-    /* Asegura alineación vertical */
 }
 
 .development-image {
     width: calc(100% - 20px);
-    /* Reduce el ancho para dar espacio al padding */
     height: 200px;
-    object-fit: cover;
+    object-fit:contain;
     margin: 10px;
-    /* Agrega espacio alrededor de la imagen */
     border-radius: 10px;
-    /* Bordes redondeados para armonía con la tarjeta */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /* Sombras sutiles en la imagen */
-    background-color: white;
-    /* Color de fondo para compatibilidad */
+    background-color:white;
 }
 
 .development-info {
     padding: 15px;
     flex: 1;
-    /* Permite que este bloque crezca para llenar el espacio */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 5px;
-    /* Espaciado uniforme entre elementos */
 }
 
 .development-info h3 {
     font-size: 1.2em;
-    color: #333;
+    color: #fff;
     margin-bottom: 10px;
 
 }
 
 .development-info p {
     font-size: 1em;
-    color: #666;
+    color: #fff;
     margin-bottom: 15px;
     line-height: 1.4;
     text-overflow: ellipsis;
@@ -129,4 +116,8 @@
 
 .close:hover {
     color: #ff5722;
+}
+
+.developments_logo {
+    margin-left:  40px;
 }
