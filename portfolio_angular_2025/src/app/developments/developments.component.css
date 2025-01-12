@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    /* Espaciado adicional */
 }
 
 .development-item {
@@ -23,11 +22,11 @@
 .development-image {
     width: calc(100% - 20px);
     height: 200px;
-    object-fit:contain;
+    object-fit: contain;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    background-color:white;
+    background-color: transparent;
 }
 
 .development-info {
@@ -52,7 +51,6 @@
     margin-bottom: 15px;
     line-height: 1.4;
     text-overflow: ellipsis;
-    /* Agrega puntos suspensivos si el texto es muy largo */
     overflow: hidden;
     white-space: nowrap;
 }
@@ -65,7 +63,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: center; /* Centra el botón horizontalmente */
+    align-self: center;
 }
 
 .view-more-btn:hover {
@@ -75,7 +73,6 @@
 /* Estilos de la modal */
 .modal {
     display: none;
-    /* Inicialmente está oculta */
     position: fixed;
     top: 0;
     left: 0;
@@ -89,9 +86,7 @@
 
 .modal-content {
     background-color: rgba(255, 255, 255, 0.8);
-    /* Fondo blureado */
     backdrop-filter: blur(15px);
-    /* Desenfoque más intenso en la modal */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -119,5 +114,5 @@
 }
 
 .developments_logo {
-    margin-left:  40px;
+    margin-left: 40px;
 }
