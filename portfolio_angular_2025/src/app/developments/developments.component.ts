@@ -15,15 +15,39 @@ export class DevelopmentsComponent {
   // Definir los desarrollos aquí
   developments = [
     {
-      title: 'Desarrollo 1',
-      image: 'ruta-a-la-imagen1.jpg',
-      description: 'Breve descripción del desarrollo 1...',
+      title: 'Recinto Virtual',
+      image: 'assets/images/dev_recinto_virtual.png',
+      description: 'Recito Virtual de la provincia de Santa Cruz...',
       details: 'Explicación detallada sobre el desarrollo 1...',
     },
     {
-      title: 'Desarrollo 2',
-      image: 'ruta-a-la-imagen2.jpg',
-      description: 'Breve descripción del desarrollo 2...',
+      title: 'Tablero de resultados',
+      image: 'assets/images/dev_tablero_resultados_1.png',
+      description: 'Tablero de votación para el recinto de la Legislatura de...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'Tablero de resultados',
+      image: 'assets/images/dev_tablero_resultados_1.png',
+      description: 'Tablero de votación para el recinto de la Legislatura de...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'Tablero de resultados',
+      image: 'assets/images/dev_tablero_resultados_1.png',
+      description: 'Tablero de votación para el recinto de la Legislatura de...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'Tablero de resultados',
+      image: 'assets/images/dev_tablero_resultados_1.png',
+      description: 'Tablero de votación para el recinto de la Legislatura de...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'Tablero de resultados',
+      image: 'assets/images/dev_tablero_resultados_1.png',
+      description: 'Tablero de votación para el recinto de la Legislatura de...',
       details: 'Explicación detallada sobre el desarrollo 2...',
     }
   ];

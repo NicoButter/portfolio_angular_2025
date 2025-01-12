@@ -4,38 +4,70 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 60px;
-    /* Para no interferir con el header */
+    padding: 20px;
+    /* Espaciado adicional */
 }
 
 .development-item {
-    width: 300px;
+    width: 450px;
+    max-height: 400px;
+    /* Limita la altura de las tarjetas */
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Fondo semitransparente */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    /* Esconde contenido que exceda la altura */
+    display: flex;
+    flex-direction: column;
+    /* Asegura alineación vertical */
 }
 
 .development-image {
-    width: 100%;
+    width: calc(100% - 20px);
+    /* Reduce el ancho para dar espacio al padding */
     height: 200px;
     object-fit: cover;
+    margin: 10px;
+    /* Agrega espacio alrededor de la imagen */
+    border-radius: 10px;
+    /* Bordes redondeados para armonía con la tarjeta */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Sombras sutiles en la imagen */
+    background-color: white;
+    /* Color de fondo para compatibilidad */
 }
 
 .development-info {
-    padding: 10px;
+    padding: 15px;
+    flex: 1;
+    /* Permite que este bloque crezca para llenar el espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    /* Espaciado uniforme entre elementos */
 }
 
 .development-info h3 {
     font-size: 1.2em;
     color: #333;
+    margin-bottom: 10px;
+
 }
 
 .development-info p {
     font-size: 1em;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    /* Agrega puntos suspensivos si el texto es muy largo */
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .view-more-btn {
@@ -46,6 +78,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    align-self: center; /* Centra el botón horizontalmente */
 }
 
 .view-more-btn:hover {
@@ -68,7 +101,10 @@
 }
 
 .modal-content {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blureado */
+    backdrop-filter: blur(15px);
+    /* Desenfoque más intenso en la modal */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
