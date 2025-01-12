@@ -1,1 +1,19 @@
-<p>developments works!</p>
+<section class="developments">
+    <div class="development-item" *ngFor="let development of developments">
+        <img [src]="development.image" alt="Imagen del desarrollo" class="development-image">
+        <div class="development-info">
+            <h3>{{ development.title }}</h3>
+            <p>{{ development.description }}</p>
+            <button class="view-more-btn" (click)="openModal(development)">Ver más</button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para imagen ampliada -->
+<div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <img [src]="selectedDevelopment.image" alt="Imagen ampliada" class="modal-image">
+        <p>{{ selectedDevelopment.details }}</p>
+    </div>
+</div>

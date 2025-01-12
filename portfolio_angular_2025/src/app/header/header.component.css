@@ -1,58 +1,87 @@
-/* Estructura general del header */
+/* Estilos base del header */
 .header {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr; /* Tres columnas: izquierda (banner), centro (vacío), derecha (contacto) */
+    justify-items: center;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
-    background-color: transparent; /* Fondo semitransparente */
+    background-color: transparent;
     padding: 20px;
+    transition: padding 0.3s ease;
 }
 
+/* Efecto shrink cuando el scroll pasa de 100px */
+.header.shrink {
+    padding: 10px;
+    grid-template-columns: 0fr 1fr 1fr; /* Todo se va a la columna 3 */
+}
+
+/* Contenedor del header */
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%; /* Ancho controlado */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas para contener los elementos */
+    width: 100%;
+    transition: width 0.3s ease;
 }
 
+/* Banner en la primera columna (estado inicial) */
 .header-left {
+    grid-column: 1; /* Columna 1 */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex: 1;
+    transition: transform 0.3s ease;
 }
 
-.header-banner {
-    max-width: 450px; /* Ajusta el tamaño del logo/banner */
-}
-
+/* Banner central (vacío hasta que se aplique shrink) */
 .header-center {
+    grid-column: 2; /* Columna 2 */
+    display: flex;
+    justify-content: center;
     text-align: center;
-    color: #fff;
-    flex: 2;
-}
-
-.header-title {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.header-subtitle {
     font-size: 1.2em;
+    color: #fff;
+    transition: opacity 0.3s ease;
 }
 
+.header.shrink .header-center {
+    opacity: 0; /* Desaparece cuando se aplica shrink */
+}
+
+/* Banner */
+.header-banner {
+    max-width: 450px;
+    transition: max-width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+    /* Animación para el cambio de tamaño y la posición */
+}
+
+.header.shrink .header-banner {
+    max-width: 250px; /* Reducir el tamaño del banner */
+    transform: translateX(0); /* Mover al centro */
+}
+
+/* Estilo del botón de contacto en la tercera columna */
 .header-right {
+    grid-column: 3; /* Columna 3 */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex: 1;
+    transition: transform 0.3s ease;
 }
 
+/* En el shrink, todo se moverá junto a la derecha */
+.header.shrink .header-left,
+.header.shrink .header-center,
+.header.shrink .header-right {
+    grid-column: 3;
+    justify-content: center;
+}
+
+/* Estilo del botón de contacto */
 .contact-button {
     display: flex;
     flex-direction: column;
@@ -62,18 +91,38 @@
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.header.shrink .contact-button {
+    flex-direction: row;
+    /* Cambio de dirección en el shrink */
+}
+
+.header.shrink .contact-button .contact-image {
+    width: 40px;
+    /* Reducir tamaño de la imagen */
+    height: 40px;
+}
+
+.header.shrink .contact-button .contact-text {
+    font-size: 0.8em;
+    /* Reducir tamaño de texto */
+}
+
 .contact-button:hover {
     transform: scale(1.1);
     color: #ff5722;
 }
 
 .contact-image {
-    width: 50px; /* Ajusta el tamaño de la imagen */
+    width: 50px;
+    /* Ajusta el tamaño de la imagen */
     height: 50px;
-    border-radius: 50%; /* Si quieres que sea circular */
+    border-radius: 50%;
+    /* Si quieres que sea circular */
     object-fit: cover;
-    margin-bottom: 5px; /* Espacio entre la imagen y el texto */
-    border: 2px solid #fff; /* Opcional: borde blanco */
+    margin-bottom: 5px;
+    /* Espacio entre la imagen y el texto */
+    border: 2px solid #fff;
+    /* Opcional: borde blanco */
 }
 
 .contact-text {
@@ -81,6 +130,7 @@
     font-weight: bold;
     text-align: center;
     margin: 0;
-    color: inherit; /* Usa el color del enlace */
+    color: inherit;
+    /* Usa el color del enlace */
     transition: color 0.3s ease;
 }
