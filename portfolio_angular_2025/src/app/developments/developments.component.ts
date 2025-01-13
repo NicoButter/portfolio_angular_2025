@@ -45,9 +45,21 @@ export class DevelopmentsComponent {
       details: 'Explicación detallada sobre el desarrollo 2...',
     },
     {
-      title: 'Tablero de resultados',
-      image: 'assets/images/dev_tablero_resultados_1.png',
-      description: 'Tablero de votación para el recinto de la Legislatura de...',
+      title: 'GJ Paramotor',
+      image: 'assets/images/dev_gjparamotor.png',
+      description: 'WEB Site para la escuela de paramotor GJ...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'AR Servicios',
+      image: 'assets/images/dev_arservicios.png',
+      description: 'WEB Site para el taller mecánico AR Servicios...',
+      details: 'Explicación detallada sobre el desarrollo 2...',
+    },
+    {
+      title: 'SONAR',
+      image: 'assets/images/dev_sonar.png',
+      description: 'Sistema WEB, red social para bandas locales...',
       details: 'Explicación detallada sobre el desarrollo 2...',
     }
   ];
