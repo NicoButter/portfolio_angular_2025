@@ -481,7 +481,7 @@ span{
 .environment {
     padding: 50px 10%;
     background-color: transparent;
-    color: #333;
+    color: green;
     display: grid;
     grid-template-columns: 3fr 1fr 1fr;
     gap: 20px;
