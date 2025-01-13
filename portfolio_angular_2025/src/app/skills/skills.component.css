@@ -1,3 +1,7 @@
+img {
+    margin-left: 350px;
+}
+
 .circle-progress-container {
     display: flex;
     flex-wrap: wrap;

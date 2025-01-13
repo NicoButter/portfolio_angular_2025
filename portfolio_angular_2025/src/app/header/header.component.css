@@ -1,7 +1,6 @@
-/* Estilos base del header */
 .header {
     display: grid;
-    grid-template-columns: auto 1fr auto; /* Tres columnas: izquierda, centro vacío, derecha */
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     position: fixed;
     top: 0;
@@ -12,6 +11,7 @@
     padding: 20px;
     transition: padding 0.3s ease, background-color 0.3s ease;
 }
+
 /* Contenedor del logo (izquierda) */
 .header-left {
     display: flex;
@@ -21,7 +21,7 @@
 
 /* Logo del banner */
 .header-banner {
-    max-width: 200px;
+    max-width: 380px;
     height: auto;
     transition: transform 0.3s ease, max-width 0.3s ease;
 }
@@ -41,52 +41,52 @@
 /* Contenedor de íconos */
 .social-media-icons {
     display: flex;
-    gap: 15px; /* Espacio entre los íconos */
-    margin-right: 15px; /* Espacio entre los íconos y el botón de contacto */
+    gap: 15px;
+    margin-right: 15px;
     align-items: center;
 }
 
 /* Estilo de los iconos de redes sociales */
 .social-icon i {
-    font-size: 30px; /* Tamaño del ícono */
-    color: #fff; /* Color blanco */
+    font-size: 30px;
+    color: #fff;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Efecto hover en los iconos */
 .social-icon:hover i {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
-    color: #ff5722; /* Cambia el color al pasar el mouse */
+    transform: scale(1.1);
+    color: #ff5722;
 }
 
 /* Ajustes en el logo al hacer shrink */
 .header.shrink .header-banner {
-    max-width: 150px; /* Reduce el tamaño del logo */
+    max-width: 150px;
 }
 
 /* Ajustes para los íconos de redes sociales */
 .header.shrink .social-media-icons {
-    gap: 8px; /* Reduce el espacio entre los íconos */
-    margin-right: 10px; /* Ajusta el margen al contraer */
+    gap: 8px;
+    margin-right: 10px;
 }
 
 .header.shrink .social-icon i {
-    font-size: 25px; /* Tamaño reducido de los íconos */
+    font-size: 25px;
 }
 
 /* Ajustes para el botón de contacto en estado shrink */
 .header.shrink .contact-button {
-    transform: scale(0.9); /* Reduce el tamaño del botón de contacto */
+    transform: scale(0.9);
 }
 
 .header.shrink .contact-image {
-    width: 40px; /* Reduce el tamaño de la imagen */
-    height: 40px; /* Reduce el tamaño de la imagen */
-    border-width: 1px; /* Reduce el grosor del borde */
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
 }
 
 .header.shrink .contact-text {
-    font-size: 0.8em; /* Reduce el tamaño del texto */
+    font-size: 0.8em;
 }
 
 /* Botón de contacto */
@@ -118,15 +118,15 @@
 }
 
 .contact-button:hover {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    transform: scale(1.1);
 }
 
 .contact-button:hover .contact-text {
-    color: #ff5722; /* Cambia el color del texto al pasar el mouse */
+    color: #ff5722;
 }
 
 .contact-button:hover .contact-image {
-    border-color: #ff5722; /* Cambia el color del borde de la imagen */
+    border-color: #ff5722;
 }
 
 /* Efectos suaves de transición */
@@ -163,15 +163,19 @@
     .header {
         padding: 10px;
     }
+
     .header-banner {
         max-width: 150px;
     }
+
     .social-icon img {
         width: 25px;
         height: 25px;
     }
+
     .contact-image {
         width: 40px;
         height: 40px;
     }
 }
+
