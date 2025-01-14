@@ -1,0 +1,19 @@
+<!-- Modal que contiene el formulario -->
+<div class="modal-overlay" *ngIf="showContactForm">
+  <div class="modal-content">
+    <button class="back-button" (click)="toggleContactForm()">Cerrar</button>
+    <h2>Envíame un mensaje</h2>
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" placeholder="Tu nombre" required />
+  
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" placeholder="Tu correo" required />
+  
+      <label for="message">Mensaje:</label>
+      <textarea id="message" rows="5" placeholder="Tu mensaje" required></textarea>
+  
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -19,4 +19,12 @@ export class HeaderComponent {
       header.classList.remove('shrink');
     }
   }
+
+  @Output() contactToggle = new EventEmitter<void>();
+
+  onContactClick() {
+    console.log('Botón "Contáctame" clickeado');
+    this.contactToggle.emit();
+  }
+
 }

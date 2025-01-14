@@ -1,0 +1,127 @@
+/* Fondo oscuro y efectos visuales */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo del contenedor del modal */
+.modal-content {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Sombra de neón */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(0.9);
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: #00ffd5; /* Color de texto neón */
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+/* Estilo de los botones */
+button {
+  background: #00ffd5;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #00b8a9;
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+/* Estilos de los inputs y textarea */
+input, textarea {
+  background: #333;
+  border: 2px solid #00ffd5;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #00b8a9;
+  outline: none;
+}
+
+/* Estilo del label */
+label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  color: #00ffd5;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Efecto de la capa oscura para el fondo */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Efecto de parpadeo para el borde */
+@keyframes pulseBorder {
+  0% {
+    border-color: #00ffd5;
+  }
+  50% {
+    border-color: #ff007f;
+  }
+  100% {
+    border-color: #00ffd5;
+  }
+}
+
+input, textarea {
+  animation: pulseBorder 2s infinite;
+}
