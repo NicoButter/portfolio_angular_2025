@@ -37,9 +37,7 @@
 		<img [src]="selectedDevelopment.image"
 			alt="Imagen ampliada"
 			class="modal-image">
-		<p>
-			{{ selectedDevelopment.details }}
-		</p>
+			<p [innerHTML]="selectedDevelopment.details"></p>
 	</div>
 </div>
 

@@ -14,19 +14,26 @@ img.developments_logo {
     width: 450px;
     max-height: 400px;
     text-align: center;
-    background-color: rgba(20, 20, 20, 0.6); /* Fondo oscuro con transparencia */
-    backdrop-filter: blur(15px); /* Desenfoque de fondo */
-    border-radius: 15px; /* Bordes redondeados más marcados */
-    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.6); /* Sombra luminosa */
+    background-color: rgba(20, 20, 20, 0.6);
+    /* Fondo oscuro con transparencia */
+    /* backdrop-filter: blur(15px); */
+    /* Desenfoque de fondo */
+    border-radius: 15px;
+    /* Bordes redondeados más marcados */
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.6);
+    /* Sombra luminosa */
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transición suave */
 }
 
 .development-item:hover {
-    transform: translateY(-10px); /* Efecto de elevación al pasar el ratón */
-    box-shadow: 0 6px 20px rgba(255, 87, 34, 1); /* Sombra más pronunciada al pasar el ratón */
+    transform: translateY(-10px);
+    /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 1);
+    /* Sombra más pronunciada al pasar el ratón */
 }
 
 .development-image {
@@ -35,13 +42,16 @@ img.developments_logo {
     object-fit: contain;
     margin: 10px;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Sombra para dar profundidad */
     background-color: transparent;
-    transition: transform 0.3s ease; /* Animación al pasar el ratón */
+    transition: transform 0.3s ease;
+    /* Animación al pasar el ratón */
 }
 
 .development-image:hover {
-    transform: scale(1.05); /* Aumento de imagen al pasar el ratón */
+    transform: scale(1.05);
+    /* Aumento de imagen al pasar el ratón */
 }
 
 .development-info {
@@ -51,13 +61,16 @@ img.developments_logo {
     flex-direction: column;
     justify-content: space-between;
     gap: 5px;
+    position: relative;
+    z-index: 2;
 }
 
 .development-info h3 {
     font-size: 1.3em;
     color: #fff;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722; /* Efecto de resplandor en el texto */
+    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722;
+    /* Efecto de resplandor en el texto */
 }
 
 .development-info p {
@@ -68,7 +81,8 @@ img.developments_logo {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722; /* Efecto de resplandor en el texto */
+    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722;
+    /* Efecto de resplandor en el texto */
 }
 
 .view-more-btn {
@@ -78,21 +92,26 @@ img.developments_logo {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Transición en el botón */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transición en el botón */
     align-self: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave en el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra suave en el botón */
 }
 
 .view-more-btn:hover {
     background-color: #e64a19;
-    transform: scale(1.05); /* Efecto de aumento en el botón */
-    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6); /* Sombra más intensa al pasar el ratón */
+    transform: scale(1.05);
+    /* Efecto de aumento en el botón */
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6);
+    /* Sombra más intensa al pasar el ratón */
 }
 
 /* Efecto de enfoque para el texto */
 .development-info p:focus {
     outline: none;
-    text-shadow: 0 0 15px #ff5722, 0 0 20px #ff5722; /* Resplandor intenso al enfocar */
+    text-shadow: 0 0 15px #ff5722, 0 0 20px #ff5722;
+    /* Resplandor intenso al enfocar */
 }
 
 /* Estilos para el modal */
@@ -112,22 +131,30 @@ img.developments_logo {
 
 /* Animación de aparición del modal */
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Estilos del contenido del modal */
 .modal-content {
-    background-color: rgba(20, 20, 20, 0.9); /* Fondo oscuro */
-    backdrop-filter: blur(10px);
+    background-color: rgba(20, 20, 20, 0.9);
+    /* Fondo oscuro */
+    /* backdrop-filter: blur(10px); */
     padding: 25px;
     border-radius: 15px;
     text-align: center;
     max-width: 700px;
     width: 90%;
-    box-shadow: 0 0 15px rgba(255, 87, 34, 0.7); /* Sombra luminosa */
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
+    /* Sombra luminosa */
     position: relative;
-    border: 2px solid #ff5722; /* Borde con color cyberpunk */
+    border: 2px solid #ff5722;
+    /* Borde con color cyberpunk */
 }
 
 /* Estilo de imagen */
@@ -138,7 +165,8 @@ img.developments_logo {
     object-fit: contain;
     margin: 0 auto;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 87, 34, 0.5); /* Sombra luminosa */
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+    /* Sombra luminosa */
 }
 
 /* Estilo del texto en el modal */
@@ -146,7 +174,8 @@ img.developments_logo {
     font-size: 1.2em;
     color: #fff;
     margin-top: 20px;
-    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722; /* Efecto de texto iluminado */
+    text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722;
+    /* Efecto de texto iluminado */
 }
 
 /* Efecto de apertura y cierre */
@@ -161,8 +190,13 @@ img.developments_logo {
 }
 
 @keyframes zoomIn {
-    0% { transform: scale(0.7); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Estilos para el botón de cerrar modal */
@@ -187,4 +221,29 @@ img.developments_logo {
 
 .close-modal-btn:focus {
     outline: none;
+}
+
+.development-item a {
+    color: #ff5722; /* Establecer el color del enlace */
+    text-decoration: none; /* Eliminar subrayado */
+    transition: color 0.3s ease, transform 0.3s ease; /* Animación suave para color y transformación */
+}
+
+/* Estilo al pasar el mouse sobre los enlaces */
+.development-item a:hover {
+    color: #fff; /* Cambiar el color cuando se pasa el ratón */
+    transform: scale(1.05); /* Levemente aumentar el tamaño */
+}
+
+/* Estilo para enlaces dentro del modal */
+.modal a {
+    color: #ff5722 !important; /* Forzar el color naranja */
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Estilo al pasar el ratón sobre los enlaces del modal */
+.modal a:hover {
+    color: #fff !important; /* Cambiar color a blanco al pasar el ratón */
+    text-shadow: 0 0 10px #ff5722, 0 0 20px #ff5722; /* Efecto de resplandor */
 }
