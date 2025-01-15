@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,6 @@ export class DevelopmentsComponent {
   isModalOpen = false;
   selectedDevelopment: any;
 
-  // Definir los desarrollos aquí
   developments = [
     {
       title: 'Recinto Virtual',
@@ -64,15 +63,26 @@ export class DevelopmentsComponent {
     }
   ];
 
+  constructor(private cdr: ChangeDetectorRef) {}  
+
   // Abre la modal con los detalles del desarrollo seleccionado
   openModal(development: any) {
     this.selectedDevelopment = development;
     this.isModalOpen = true;
   }
 
-  // Cierra la modal
   closeModal() {
     this.isModalOpen = false;
   }
 
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && this.isModalOpen) {
+      this.closeModal();
+    }
+  }
 }

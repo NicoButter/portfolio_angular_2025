@@ -1,20 +1,45 @@
-<img src="assets/images/developments_logo.png" alt="banner developments" class="developments_logo">
+<img src="assets/images/developments_logo.png"
+	alt="banner developments"
+	class="developments_logo">
 <section class="developments">
-    <div class="development-item" *ngFor="let development of developments">
-        <img [src]="development.image" alt="Imagen del desarrollo" class="development-image">
-        <div class="development-info">
-            <h3>{{ development.title }}</h3>
-            <p>{{ development.description }}</p>
-            <button class="view-more-btn" (click)="openModal(development)">Ver más</button>
-        </div>
-    </div>
+	<div *ngFor="let development of developments"
+		class="development-item">
+		<img [src]="development.image"
+			alt="Imagen del desarrollo"
+			class="development-image">
+		<div class="development-info">
+			<h3>
+				{{ development.title }}
+			</h3>
+			<p>
+				{{ development.description }}
+			</p>
+			<button (click)="openModal(development)"
+				class="view-more-btn">
+				Ver más
+			</button>
+		</div>
+	</div>
 </section>
 
-<!-- Modal para imagen ampliada -->
-<div class="modal" *ngIf="isModalOpen">
-    <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <img [src]="selectedDevelopment.image" alt="Imagen ampliada" class="modal-image">
-        <p>{{ selectedDevelopment.details }}</p>
-    </div>
+<div *ngIf="isModalOpen"
+	(click)="closeModal()"
+	class="modal">
+	<div (click)="$event.stopPropagation()"
+		class="modal-content">
+        <button class="close-modal-btn" (click)="closeModal()" aria-label="Cerrar Modal">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+		<span (click)="closeModal()"
+			class="close">
+			&times;
+		</span>
+		<img [src]="selectedDevelopment.image"
+			alt="Imagen ampliada"
+			class="modal-image">
+		<p>
+			{{ selectedDevelopment.details }}
+		</p>
+	</div>
 </div>
+
