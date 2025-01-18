@@ -4,13 +4,13 @@
     <h2>Send me a message</h2>
     <form (ngSubmit)="sendMessage()">
       <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="Tu nombre" [(ngModel)]="contactData.name" name="name" required />
+      <input type="text" id="name" placeholder="your name" [(ngModel)]="contactData.name" name="name" required />
   
       <label for="email">e-mail:</label>
-      <input type="email" id="email" placeholder="Tu correo" [(ngModel)]="contactData.email" name="email" required />
+      <input type="email" id="email" placeholder="your e-mail" [(ngModel)]="contactData.email" name="email" required />
   
       <label for="message">Message:</label>
-      <textarea id="message" rows="5" placeholder="Tu mensaje" [(ngModel)]="contactData.message" name="message" required></textarea>
+      <textarea id="message" rows="5" placeholder="your message" [(ngModel)]="contactData.message" name="message" required></textarea>
   
       <button type="submit">Send</button>
     </form>
