@@ -1,18 +1,18 @@
 <div class="modal-overlay" *ngIf="showContactForm">
   <div class="modal-content">
-    <button class="back-button" (click)="toggleContactForm()">Cerrar</button>
-    <h2>Envíame un mensaje</h2>
+    <button class="back-button" (click)="toggleContactForm()">Close</button>
+    <h2>Send me a message</h2>
     <form (ngSubmit)="sendMessage()">
-      <label for="name">Nombre:</label>
+      <label for="name">Name:</label>
       <input type="text" id="name" placeholder="Tu nombre" [(ngModel)]="contactData.name" name="name" required />
   
-      <label for="email">Correo electrónico:</label>
+      <label for="email">e-mail:</label>
       <input type="email" id="email" placeholder="Tu correo" [(ngModel)]="contactData.email" name="email" required />
   
-      <label for="message">Mensaje:</label>
+      <label for="message">Message:</label>
       <textarea id="message" rows="5" placeholder="Tu mensaje" [(ngModel)]="contactData.message" name="message" required></textarea>
   
-      <button type="submit">Enviar</button>
+      <button type="submit">Send</button>
     </form>
   </div>
 </div>
