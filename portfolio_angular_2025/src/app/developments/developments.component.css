@@ -1,5 +1,9 @@
-img.developments_logo {
-    margin-left: 350px;
+.developments_logo {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
 .developments {
@@ -222,4 +226,25 @@ img.developments_logo {
 .modal a:hover {
     color: #fff !important;
     text-shadow: 0 0 10px #ff5722, 0 0 20px #ff5722;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1024px) {
+    .developments-title {
+        font-size: 2em;
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .developments-title {
+        font-size: 1.8em;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+    .developments-title {
+        font-size: 1.5em;
+    }
 }

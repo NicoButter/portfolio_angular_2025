@@ -1,11 +1,31 @@
-img {
-    margin-left: 350px;
-}
-
 .circle-progress-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen horizontalmente */
+    text-align: center; /* Alinea el texto del título en caso de que lo agregues */
+    margin: 0 auto; /* Asegura que el contenedor esté centrado */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px; /* Espaciado alrededor del contenedor */
+}
+
+.skills-container img {
+    max-width: 100%; /* Para asegurarte de que la imagen nunca sea más ancha que su contenedor */
+    height: auto; /* Mantiene la proporción original */
+    display: block; /* Elimina el espacio inferior que algunas imágenes generan */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    padding: 20px 0; /* Espaciado vertical opcional */
+}
+
+@media (max-width: 768px) {
+    .skills-container img {
+        max-width: 80%; /* Ajusta el tamaño en pantallas pequeñas */
+    }
 }
