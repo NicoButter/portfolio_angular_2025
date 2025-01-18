@@ -1,11 +1,10 @@
+html,
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-family: "Exo 2", serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
+    height: 100%;
 }
 
 .video-background {
@@ -19,13 +18,29 @@ body {
     pointer-events: none;
 }
 
-/* Contenido */
+/* Responsividad para diferentes proporciones */
+@media screen and (max-aspect-ratio: 16/9) {
+    .video-background {
+        height: 100%;
+        width: auto;
+    }
+}
+
+@media screen and (min-aspect-ratio: 16/9) {
+    .video-background {
+        height: auto;
+        width: 100%;
+    }
+}
+
+/* Contenido de la aplicación */
 section {
     min-height: 100vh;
     padding: 20px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    text-align: center;
+    z-index: 1;
 }
-
-html {
-    scroll-behavior: smooth;
-  }
