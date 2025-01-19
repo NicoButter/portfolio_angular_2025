@@ -132,6 +132,77 @@
     transform: scale(1.1);
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    backdrop-filter: blur(8px); /* Desenfoque de fondo */
+    overflow: auto;
+  }
+  
+  .modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: linear-gradient(135deg, #020c1b, #1a233a); /* Fondo gradiente */
+    color: #0ff; /* Texto neón */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0ff, 0 0 30px #ff00ff; /* Efecto neón */
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid #ff00ff; /* Borde brillante */
+  }
+  
+  .close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Orbitron", sans-serif; /* Fuente futurista */
+    color: #fff;
+    background: linear-gradient(135deg, #ff00ff, #0ff); /* Fondo neón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff, 0 0 15px #ff00ff;
+    transition: all 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+    background: #0ff;
+    box-shadow: 0 0 20px #ff00ff, 0 0 30px #0ff; /* Más intensidad al pasar el mouse */
+    transform: scale(1.1); /* Zoom */
+  }
+  
+  .modal h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 24px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #ff00ff; /* Sombra brillante */
+  }
+  
+  .modal a {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .modal a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #ff00ff;
+  }
+
 /* Estilos responsive */
 @media (max-width: 768px) {
     .footer {

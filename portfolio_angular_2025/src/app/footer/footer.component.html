@@ -1,4 +1,4 @@
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="footer-left">
         <div class="parche">
             <img src="assets/images/parche-butterfield.png" alt="">
@@ -8,7 +8,6 @@
         <h3 class="copyright">© 2025 Nicolás Butterfield. All rights reserved.</h3>
     </div>
     <div class="footer-right">
-        <!-- <a href="#">Política de privacidad</a> -->
         <div class="footer-left">
             <div class="social-icon">
                 <a href="https://www.linkedin.com/in/nicol%C3%A1s-butterfield-9964aa1a3/" target="_blank" class="social-icon">
@@ -31,4 +30,68 @@
 
     </div>
    
+</footer> -->
+
+<footer class="footer">
+	<div class="footer-left">
+		<div (click)="openModal()"
+			class="parche">
+			<img src="assets/images/parche-butterfield.png"
+				alt="Parche">
+		</div>
+	</div>
+	<div class="footer-center">
+		<h3 class="copyright">
+			© 2025 Nicolás Butterfield. All rights reserved.
+		</h3>
+	</div>
+	<div class="footer-right">
+		<div class="footer-left">
+			<div class="social-icon">
+				<a href="https://www.linkedin.com/in/nicol%C3%A1s-butterfield-9964aa1a3/"
+					target="_blank"
+					class="social-icon">
+					<i class="fa-brands fa-linkedin"></i>
+				</a>
+				<a href="https://soundcloud.com/user-785671138"
+					target="_blank"
+					class="social-icon">
+					<i class="fa-brands fa-soundcloud"></i>
+				</a>
+				<a href="https://github.com/NicoButter"
+					target="_blank"
+					class="social-icon">
+					<i class="fa-brands fa-github"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="footer-download">
+			<a href="assets/docs/butterfield_curriculum_2025_sn.pdf"
+				download="Nicolas_Butterfield_Curriculum_2025.pdf">
+				<button class="download-btn">Download my CV</button>
+			</a>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div [class.show]="showModal"
+		(click)="closeModalOnBackdropClick($event)"
+		class="modal">
+		<div class="modal-content">
+			<h2>
+				Visitors Counter
+			</h2>
+			<a href="https://www.free-counters.org/"
+				target="_blank"></a>
+			<script type="text/javascript"
+				src="https://www.freevisitorcounters.com/auth.php?id=215e835c4924e89717f309b73425fea5c9d47e14"></script>
+			<script type="text/javascript"
+				src="https://www.freevisitorcounters.com/en/home/counter/1289937/t/4"></script>
+			<button (click)="closeModal()"
+				class="close-btn">
+				Close
+			</button>
+		</div>
+	</div>
 </footer>
