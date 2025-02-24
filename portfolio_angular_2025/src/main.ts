@@ -20,6 +20,6 @@ bootstrapApplication(AppComponent, {
         showTitle: false,
       }),
     ),
-    ...appConfig.providers, // Aquí es donde se "extiende" appConfig
+    ...appConfig.providers,
   ]
 }).catch((err) => console.error(err));
