@@ -43,15 +43,36 @@
 	<!-- Modal -->
 	<div [class.show]="showModal"
 		(click)="closeModalOnBackdropClick($event)"
-		class="modal">
-		<div class="modal-content">
-			<h2>
-				Thanks for visiting my web site!.
-			</h2>
-			<button (click)="closeModal()"
-				class="close-btn">
-				see you
-			</button>
+		class="modal"
+		role="dialog"
+		aria-modal="true"
+		[attr.aria-hidden]="!showModal">
+		<div class="modal-content" role="document">
+			<button class="modal-close-x" aria-label="Close modal" (click)="closeModal()">×</button>
+			<div class="modal-top">
+				<img src="assets/images/parche-butterfield.png" alt="Butterfield patch" class="modal-logo">
+				<h2 class="modal-title" data-text="Butterfield">Butterfield</h2>
+				<p class="modal-sub">A dystopian sonic-visual playground — thanks for stopping by.</p>
+			</div>
+			<hr class="neon-divider">
+			<div class="modal-body">
+				<p>Si te interesa colaborar o escuchar mis proyectos, puedes seguirme o descargar mi CV.</p>
+				<div class="modal-actions">
+					<a class="social" href="https://github.com/NicoButter" target="_blank" rel="noopener">
+						<i class="fa-brands fa-github"></i>
+					</a>
+					<a class="social" href="https://www.linkedin.com/in/nicol%C3%A1s-butterfield-9964aa1a3/" target="_blank" rel="noopener">
+						<i class="fa-brands fa-linkedin"></i>
+					</a>
+					<a class="social" href="https://soundcloud.com/user-785671138" target="_blank" rel="noopener">
+						<i class="fa-brands fa-soundcloud"></i>
+					</a>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="assets/docs/butterfield_curriculum_2025_sn.pdf" download class="download-cv">Download CV</a>
+				<button (click)="closeModal()" class="close-btn">See you</button>
+			</div>
 		</div>
 	</div>
 </footer>
