@@ -25,6 +25,26 @@
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) brightness(1.2);
 }
 
+/* Hide percentage text by default, show on hover for preview effect.
+   Use ::ng-deep so rules penetrate the child component's encapsulated DOM. */
+:host ::ng-deep circle-progress svg text,
+:host ::ng-deep circle-progress svg .circle-text,
+:host ::ng-deep circle-progress .circle-text {
+    opacity: 0 !important;
+    transition: opacity 0.25s ease, fill 0.25s ease;
+    fill: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 8px rgba(0,255,200,0.6) !important;
+}
+
+:host ::ng-deep .circle-container:hover circle-progress svg text,
+:host ::ng-deep .circle-container circle-progress:hover svg text,
+:host ::ng-deep circle-progress:hover svg text,
+:host ::ng-deep .circle-container:hover circle-progress .circle-text,
+:host ::ng-deep .circle-container circle-progress:hover .circle-text {
+    opacity: 1 !important;
+}
+
 /* Override library styles for images */
 .circle-container img {
     width: 80px !important;
