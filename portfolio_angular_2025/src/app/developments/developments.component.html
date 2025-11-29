@@ -1,45 +1,50 @@
 <section id="developments">
-<img src="assets/images/developments_logo.png"
-	alt="banner developments"
-	class="developments_logo">
-<section class="developments">
-	<div *ngFor="let development of developments"
-		class="development-item">
-		<img [src]="development.image"
-			alt="Imagen del desarrollo"
-			class="development-image">
-		<div class="development-info">
-			<h3>
-				{{ development.title }}
-			</h3>
-			<p>
-				{{ development.description }}
-			</p>
-			<button (click)="openModal(development)"
-				class="view-more-btn">
-				Ver más
+	<div class="developments-wrapper">
+		<div class="developments-header">
+			<img src="assets/images/developments_logo.png"
+					 alt="banner developments"
+					 class="developments_logo">
+		</div>
+
+		<section class="developments">
+			<div *ngFor="let development of developments"
+					 class="development-item">
+				<img [src]="development.image"
+						 alt="Imagen del desarrollo"
+						 class="development-image">
+				<div class="development-info">
+					<h3>
+						{{ development.title }}
+					</h3>
+					<p>
+						{{ development.description }}
+					</p>
+					<button (click)="openModal(development)"
+									class="view-more-btn">
+						Ver más
+					</button>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div *ngIf="isModalOpen"
+			 (click)="closeModal()"
+			 class="modal">
+		<div (click)="$event.stopPropagation()"
+				 class="modal-content">
+			<button class="close-modal-btn" (click)="closeModal()" aria-label="Cerrar Modal">
+				<i class="fa-regular fa-circle-xmark"></i>
 			</button>
+			<span (click)="closeModal()"
+						class="close">
+				&times;
+			</span>
+			<img [src]="selectedDevelopment.image"
+					 alt="Imagen ampliada"
+					 class="modal-image">
+			<p [innerHTML]="selectedDevelopment.details"></p>
 		</div>
 	</div>
-</section>
-
-<div *ngIf="isModalOpen"
-	(click)="closeModal()"
-	class="modal">
-	<div (click)="$event.stopPropagation()"
-		class="modal-content">
-        <button class="close-modal-btn" (click)="closeModal()" aria-label="Cerrar Modal">
-            <i class="fa-regular fa-circle-xmark"></i>
-        </button>
-		<span (click)="closeModal()"
-			class="close">
-			&times;
-		</span>
-		<img [src]="selectedDevelopment.image"
-			alt="Imagen ampliada"
-			class="modal-image">
-			<p [innerHTML]="selectedDevelopment.details"></p>
-	</div>
-</div>
 </section>
 
