@@ -14,61 +14,122 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   showContactForm: boolean = false;
   contactData = { name: '', email: '', message: '' };
+  sending: boolean = false;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  private ignoreOutsideClick = false;
+
+  private focusableElementsSelector = 'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])';
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // Detectar el clic fuera del modal
-    window.addEventListener('click', this.handleOutsideClick);
-
-    // Detectar la tecla Escape
-    window.addEventListener('keydown', this.handleEscapeKey);
+    // Detectar clic y teclado a nivel de documento para manejar cierre y focus
+    document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener('keydown', this.handleEscapeKey);
   }
 
   ngOnDestroy() {
-    // Limpiar los listeners cuando el componente se destruye
-    window.removeEventListener('click', this.handleOutsideClick);
-    window.removeEventListener('keydown', this.handleEscapeKey);
+    document.removeEventListener('click', this.handleOutsideClick);
+    document.removeEventListener('keydown', this.handleEscapeKey);
   }
 
-  // Abre y cierra el modal
+  // Abre y cierra el modal. Cuando se abre, fijar foco al primer control.
   toggleContactForm() {
     this.showContactForm = !this.showContactForm;
+    if (this.showContactForm) {
+      // reset messages
+      this.successMessage = null;
+      this.errorMessage = null;
+      // evitar que el click que abrió el modal lo cierre inmediatamente
+      this.ignoreOutsideClick = true;
+      setTimeout(() => this.ignoreOutsideClick = false, 120);
+      // permitir que el DOM pinte y luego enfocar
+      setTimeout(() => this.focusFirstControl(), 50);
+    }
+  }
+
+  private focusFirstControl() {
+    const modal = document.querySelector('.modal-content') as HTMLElement | null;
+    if (!modal) return;
+    const first = modal.querySelector('input, textarea, button') as HTMLElement | null;
+    first?.focus();
   }
 
   // Cerrar modal si se hace clic fuera del contenido
   handleOutsideClick = (event: MouseEvent) => {
+    if (!this.showContactForm) return;
+    if (this.ignoreOutsideClick) return;
     const modalContent = document.querySelector('.modal-content');
-    const modalOverlay = document.querySelector('.modal-overlay');
-    
-    // Verifica si el clic fue fuera del modal
-    if (modalOverlay && !modalContent?.contains(event.target as Node)) {
-      this.showContactForm = false;
+    const target = event.target as Node;
+    if (modalContent && !modalContent.contains(target)) {
+      this.closeForm();
     }
   }
 
-  // Cerrar modal al presionar la tecla Escape
+  // Cerrar modal al presionar la tecla Escape y manejar tab trapping
   handleEscapeKey = (event: KeyboardEvent) => {
+    if (!this.showContactForm) return;
     if (event.key === 'Escape') {
-      this.showContactForm = false;
+      this.closeForm();
+    }
+
+    // Simple focus trap: keep focus inside modal on Tab key
+    if (event.key === 'Tab') {
+      const modal = document.querySelector('.modal-content') as HTMLElement | null;
+      if (!modal) return;
+      const focusable = Array.from(modal.querySelectorAll(this.focusableElementsSelector)) as HTMLElement[];
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      }
     }
   }
 
-  // Enviar el formulario a Formspree
-  sendMessage() {
-    const formData = new FormData();
-    formData.append('name', this.contactData.name);
-    formData.append('email', this.contactData.email);
-    formData.append('message', this.contactData.message);
+  private closeForm() {
+    this.showContactForm = false;
+    this.sending = false;
+  }
 
-    // Enviar el formulario a Formspree
-    this.http.post('https://formspree.io/f/movaerny', formData).subscribe(
-      (response) => {
-        console.log('Mensaje enviado correctamente:', response);
-        this.toggleContactForm(); // Cerrar el formulario después de enviar
+  // Enviar el formulario a Formspree con feedback y manejo de estado
+  sendMessage(form?: any) {
+    if (this.sending) return;
+    if (form && form.invalid) {
+      // marcar todos los campos como tocados para mostrar errores
+      Object.values(form.controls).forEach((c: any) => c.markAsTouched());
+      return;
+    }
+
+    this.sending = true;
+    this.successMessage = null;
+    this.errorMessage = null;
+
+    const payload = {
+      name: this.contactData.name,
+      email: this.contactData.email,
+      message: this.contactData.message,
+    };
+
+    // Enviar como JSON a Formspree endpoint
+    this.http.post('https://formspree.io/f/movaerny', payload).subscribe(
+      (response: any) => {
+        this.sending = false;
+        this.successMessage = 'Message sent — thank you!';
+        // limpiar formulario
+        this.contactData = { name: '', email: '', message: '' };
+        // cerrar modal después de una pausa para que el usuario lea el mensaje
+        setTimeout(() => this.closeForm(), 1700);
       },
       (error) => {
-        console.error('Error al enviar el mensaje', error);
+        console.error('Error sending contact form', error);
+        this.sending = false;
+        this.errorMessage = 'There was an error sending your message. Please try again later.';
       }
     );
   }

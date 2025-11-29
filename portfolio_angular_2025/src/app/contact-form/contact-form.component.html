@@ -1,18 +1,50 @@
-<div class="modal-overlay" *ngIf="showContactForm">
-  <div class="modal-content">
-    <button class="back-button" (click)="toggleContactForm()">Close</button>
-    <h2>Send me a message</h2>
-    <form (ngSubmit)="sendMessage()">
-      <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="your name" [(ngModel)]="contactData.name" name="name" required />
-  
-      <label for="email">e-mail:</label>
-      <input type="email" id="email" placeholder="your e-mail" [(ngModel)]="contactData.email" name="email" required />
-  
-      <label for="message">Message:</label>
-      <textarea id="message" rows="5" placeholder="your message" [(ngModel)]="contactData.message" name="message" required></textarea>
-  
-      <button type="submit">Send</button>
+<div class="modal-overlay" *ngIf="showContactForm" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-describedby="contactDesc">
+  <div class="modal-content" (click)="$event.stopPropagation()" tabindex="-1">
+    <button class="close-btn" (click)="toggleContactForm()" aria-label="Cerrar formulario de contacto">
+      <i class="fa-regular fa-circle-xmark"></i>
+    </button>
+
+    <h2 id="contactTitle" class="contact-title">Send me a message</h2>
+    <p id="contactDesc" class="sr-only">Formulario para enviar mensajes desde el portafolio. Campos obligatorios marcados con *</p>
+
+    <form (ngSubmit)="sendMessage(contactForm)" #contactForm="ngForm" novalidate>
+      <div class="field">
+        <label for="name">Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Your name" [(ngModel)]="contactData.name" required minlength="2" #nameModel="ngModel" aria-required="true" />
+        <div class="field-error" *ngIf="nameModel.invalid && (nameModel.touched || nameModel.dirty)">
+          <small *ngIf="nameModel.errors?.['required']">Name is required.</small>
+          <small *ngIf="nameModel.errors?.['minlength']">Enter at least 2 characters.</small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="your e-mail" [(ngModel)]="contactData.email" required email #emailModel="ngModel" aria-required="true" />
+        <div class="field-error" *ngIf="emailModel.invalid && (emailModel.touched || emailModel.dirty)">
+          <small *ngIf="emailModel.errors?.['required']">Email is required.</small>
+          <small *ngIf="emailModel.errors?.['email']">Enter a valid email address.</small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="6" placeholder="Your message" [(ngModel)]="contactData.message" required minlength="6" #msgModel="ngModel" aria-required="true"></textarea>
+        <div class="field-error" *ngIf="msgModel.invalid && (msgModel.touched || msgModel.dirty)">
+          <small *ngIf="msgModel.errors?.['required']">Message is required.</small>
+          <small *ngIf="msgModel.errors?.['minlength']">Write at least 6 characters.</small>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="send-btn" [disabled]="sending || contactForm.invalid">
+          <span *ngIf="!sending">Send</span>
+          <span *ngIf="sending" class="spinner" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="secondary-btn" (click)="toggleContactForm()">Cancel</button>
+      </div>
+
+      <div *ngIf="successMessage" class="form-feedback success" role="status">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="form-feedback error" role="alert">{{ errorMessage }}</div>
     </form>
   </div>
 </div>
