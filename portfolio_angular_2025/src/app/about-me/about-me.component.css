@@ -13,23 +13,24 @@ section {
 
 .hero {
     background-color: transparent;
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
-    gap: 20px;
     position: relative;
-    font-size: clamp(25px, 3vw, 5px);
-    line-height: 1;
+    font-size: clamp(25px, 3vw, 50px);
+    line-height: 1.2;
     color: #fff;
-    text-shadow:    2px 2px 4px #28a745, 
+    text-shadow:    2px 2px 4px #28a745,
                     -2px -2px 4px #28a745,
                     1px 1px 2px rgba(0, 0, 0, 0.5);
     z-index: 2;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     filter: drop-shadow(0 1px 3px);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .layers {
     position: relative;
+    mix-blend-mode: screen;
 }
 
 .layers::before,
@@ -38,18 +39,21 @@ section {
     position: absolute;
     width: 110%;
     z-index: -1;
+    mix-blend-mode: difference;
 }
 
 .layers::before {
     top: 10px;
     left: 15px;
     color: #e0287d;
+    animation: glitch-shift 0.5s infinite linear alternate;
 }
 
 .layers::after {
     top: 5px;
     left: -10px;
     color: #1bc7fb;
+    animation: glitch-shift 0.5s infinite linear alternate-reverse;
 }
 
 .single-path {
@@ -426,31 +430,49 @@ section {
     0% {
         font-weight: 100;
         color: #e0287d;
-        filter: blur(3px);
+        filter: blur(3px) hue-rotate(0deg);
     }
 
     20% {
         font-weight: 500;
         color: #fff;
-        filter: blur(0);
+        filter: blur(0) hue-rotate(90deg);
     }
 
     50% {
         font-weight: 300;
         color: #1bc7fb;
-        filter: blur(2px);
+        filter: blur(2px) hue-rotate(180deg);
     }
 
     60% {
         font-weight: 700;
         color: #fff;
-        filter: blur(0);
+        filter: blur(0) hue-rotate(270deg);
     }
 
     90% {
         font-weight: 500;
         color: #e0287d;
-        filter: blur(6px);
+        filter: blur(6px) hue-rotate(360deg);
+    }
+}
+
+@keyframes glitch-shift {
+    0% {
+        transform: translateX(0) skewX(0deg);
+    }
+    25% {
+        transform: translateX(-2px) skewX(1deg);
+    }
+    50% {
+        transform: translateX(2px) skewX(-1deg);
+    }
+    75% {
+        transform: translateX(-1px) skewX(0.5deg);
+    }
+    100% {
+        transform: translateX(0) skewX(0deg);
     }
 }
 

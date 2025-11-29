@@ -7,9 +7,33 @@
     left: 0;
     right: 0;
     z-index: 10;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    transition: padding 0.3s ease, background-color 0.3s ease;
+    transition: padding 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.2), rgba(0, 255, 255, 0.2));
+    filter: blur(15px);
+    z-index: -1;
+}
+
+.header.shrink {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 10px 20px;
+}
+
+.header.shrink::before {
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.4), rgba(0, 255, 255, 0.4));
+    filter: blur(20px);
 }
 
 /* Contenedor del logo (izquierda) */
@@ -29,6 +53,41 @@
 /* Columna central (vacía) */
 .header-center {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Exo 2", serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #00ff99;
+    transform: scale(1.1);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #00ff99;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* Contenedor de las redes sociales y el botón de contacto (derecha) */
@@ -64,23 +123,21 @@
 
 /* Ajustes en el logo al hacer shrink */
 .header.shrink .header-banner {
-    max-width: 150px;
+    max-width: 200px;
 }
 
 .header.shrink .header-right {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 /* Ajustes para los íconos de redes sociales */
 .header.shrink .social-media-icons {
-    gap: 8px;
+    gap: 10px;
     margin-right: 10px;
 }
 
 .header.shrink .social-icon i {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 /* Ajustes para el botón de contacto en estado shrink */
@@ -96,6 +153,11 @@
 
 .header.shrink .contact-text {
     font-size: 0.8em;
+}
+
+.header.shrink .nav-link {
+    font-size: 16px;
+    margin: 0 10px;
 }
 
 /* Botón de contacto */

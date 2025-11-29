@@ -1,9 +1,45 @@
 .circle-progress-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.circle-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    position: relative;
+}
+
+.circle-container circle-progress {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.circle-container circle-progress:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) brightness(1.2);
+}
+
+/* Override library styles for images */
+.circle-container img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: contain !important;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* Specific for Spring Boot and Linux if needed */
+.circle-container img[src*='springboot'],
+.circle-container img[src*='linux'] {
+    object-fit: cover !important;
 }
 
 .skills-container {
@@ -13,19 +49,28 @@
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    padding: 20px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.9));
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 0, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skills-container img {
-    max-width: 100%;
+    max-width: 600px;
     height: auto;
     display: block;
-    margin: 0 auto;
-    padding: 20px 0;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 5px 15px rgba(0, 255, 153, 0.5));
 }
 
 @media (max-width: 768px) {
+    .circle-progress-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+    }
+
     .skills-container img {
-        max-width: 80%;
+        max-width: 400px;
     }
 }
